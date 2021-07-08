@@ -41,7 +41,7 @@ The sample output should look like this
 ```
 
 ## Known Issues
-Version 2 brings in the problem that a UID might collide and match with a bytesize output from ZFS. This will be fixed int he future.
+Version 2 brings in the problem that a UID might collide and match with a bytesize output from ZFS. This has hopefully been mitigated against.
 
 ## About
 
