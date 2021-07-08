@@ -38,17 +38,20 @@ QUID=$(id -u $QUSER)
 for i in "${servers[@]}"; do
   zquota=$(cat $i/quota.zfs 2>/dev/null | grep $QUID);
   if [[ ! -z "$zquota" ]]; then
-    for ii in $zquota; do 
+    for ii in $zquota; do
       zuid=$(echo $ii | awk -F'::' '{print $1}')
       if  [[ $zuid == $QUID ]]; then
         zused=$(echo $ii | awk -F'::' '{print $2}' | numfmt --to=iec);
+        if [[ $zused == "nan" ]]; then
+          zused=0;
+        fi
         ztotal=$(echo $ii | awk -F'::' '{print $3}');
         if [[ $ztotal -ne "none" ]]; then
           ztotal=$(echo $ztotal | numfmt --to=iec);
         fi
         zperc=$(echo $ii | awk -F'::' '{print $4}');
       fi
-    done 
+    done
     zage=$(date +"%c" -d @$(stat -c %Z $i/quota.zfs))
     printf ' %-30s %-15s %-15s %-25s\n' "$i" "$zused ($zperc)" "$ztotal" "$zage";
   fi
