@@ -1,5 +1,5 @@
 #!/bin/bash
-# ZFS Quota Client
+# ZFS Quota Client V2
 # 2021 - Adam Boutcher
 # IPPP, Durham University
 
@@ -39,7 +39,7 @@ for i in "${servers[@]}"; do
 	if [[ ! -z "$zquota" ]]; then
 		zused=$(echo $zquota | awk -F'::' '{print $2}' | numfmt --to=iec);
 		ztotal=$(echo $zquota | awk -F'::' '{print $3}');
-		if [[ $ztotal -ne "none" ]]; then 
+		if [[ $ztotal -ne "none" ]]; then
 			ztotal=$(echo $ztotal | numfmt --to=iec);
 		fi
 		zperc=$(echo $zquota | awk -F'::' '{print $4}');
