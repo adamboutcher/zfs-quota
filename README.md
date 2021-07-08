@@ -3,6 +3,10 @@ This is a very rudamentary quota checking system for a ZFS based NFS Server as t
 
 Expect this to break.
 
+## Versions and Differences
+Version 1 is available in the branch v1, the main branch is now a modified version marked as v2.
+Version 2 is not backwards compatible with v1 which is why the version numbers changed. Version 2 utilises UIDs and not Usernames.
+
 ## Sample Usage:
 
 This is aimed at network envrionments where end users require some form of quota output.
@@ -19,10 +23,10 @@ touch $(zfs get mountpoint homes/home -H | awk '{print $3}')/quota.zfs
 chmod 744 $(zfs get mountpoint homes/home -H | awk '{print $3}')/quota.zfs
 ```
 
-the quota.zfs output should look similar to this:
+the quota.zfs output should look similar to this (showing UIDs and not Usernames):
 ```
-aboutcher::1307875224::161061273600::1%
-root::56580187648::64424509440::88%
+1001::1307875224::161061273600::1%
+1::56580187648::64424509440::88%
 ```
 
 Add the list of ZFS Servers to the array in the client script and the correct mountpoint, you could then alias quota with this script is required.
@@ -35,6 +39,9 @@ The sample output should look like this
  /mnt/home			1.3G (1%)	150G		Wed 28 Jun 2017 16:21:44 BST
 
 ```
+
+## Known Issues
+Version 2 brings in the problem that a UID might collide and match with a bytesize output from ZFS. This will be fixed int he future.
 
 ## About
 
