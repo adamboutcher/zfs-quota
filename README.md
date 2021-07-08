@@ -45,7 +45,7 @@ Version 2 brings in the problem that a UID might collide and match with a bytesi
 
 ## About
 
-This reposistory is split out from work contain in [aboutcher/GridScripts](https://github.com/adamboutcher/Grid-Scripts) which is work for the [IPPP](https://www.ippp.dur.ac.uk) at [Durham University](https://www.dur.ac.uk).
+This reposistory is based on work mentioned on my [blog](https://aboutcher.co.uk/2017/06/linux-zfs-quotas-hacked-solution/) and is split out from work contained in [aboutcher/GridScripts](https://github.com/adamboutcher/Grid-Scripts) which is work for the [IPPP](https://www.ippp.dur.ac.uk) at [Durham University](https://www.dur.ac.uk).
 
 All code contained is Copyright myself (Adam Boutcher) and/or the IPPP unless otherwise stated in the header of the file. They are provided free for use but include no liability or warrenty; more or less the GPLv3.
 
