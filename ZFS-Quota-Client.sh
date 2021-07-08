@@ -1,6 +1,6 @@
 #!/bin/bash
-# ZFS Quota Client
-# 2020 - Adam Boutcher
+# ZFS Quota Client v2
+# 2021 - Adam Boutcher
 # IPPP, Durham University
 
 servers[0]="/mt/home"
@@ -31,6 +31,7 @@ check_bin awk
 check_bin stat
 check_bin numfmt
 check_bin stat
+check_bin id
 
 printf "\n Storage Quota v2 BETA - This *might* sometimes break.\n\n"
 printf "\n Quota Report for $QUSER\n"
