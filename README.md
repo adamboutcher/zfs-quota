@@ -1,5 +1,5 @@
 # zfs-quota
-This is a very rudamentary quota checking system for a ZFS based NFS Server as the default quota method doesnt work in linux.
+This is a very rudimentary quota checking system for a ZFS based NFS Server as the default quota method doesnt work in linux.
 
 Expect this to break.
 
