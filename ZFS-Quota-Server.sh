@@ -5,6 +5,7 @@
 # This pulls the quota info from ZFS and outputs to a file to parse remotely
 
 ZFS="/usr/sbin/zfs"
+#LOC=/mnt/blah
 
 # Function to check that a binary exists
 function check_bin() {
