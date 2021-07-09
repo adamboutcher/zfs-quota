@@ -10,7 +10,7 @@ Version 2 is not backwards compatible with v1 which is why the version numbers c
 ## Sample Usage:
 
 This is aimed at network envrionments where end users require some form of quota output.
-We assume that the root of the ZFS mount point is the mount point for the users data, this may not be your use case, please change teh variable QLOC in the server script.
+We assume that the root of the ZFS mount point is the mount point for the users data, this may not be your use case, please uncomment ands set the variable QLOC in the server script.
 
 Put the server script into cron:
 ```bash
