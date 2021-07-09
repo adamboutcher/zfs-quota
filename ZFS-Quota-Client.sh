@@ -30,6 +30,7 @@ check_bin stat
 check_bin numfmt
 check_bin stat
 check_bin id
+check_bin date
 
 printf "\n Storage Quota v2 BETA - This *might* sometimes break.\n\n"
 printf "\n Quota Report for $QUSER\n"
