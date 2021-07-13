@@ -3,8 +3,8 @@
 # 2021 - Adam Boutcher
 # IPPP, Durham University
 
-servers[0]="/mt/home"
-servers[1]="/mt/storage"
+servers[0]="/mnt/home"
+servers[1]="/mnt/storage"
 
 if [ -z "$1" ]; then
   QUSER=$USER
