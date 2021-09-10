@@ -5,7 +5,6 @@
 # This pulls the quota info from ZFS and outputs to a file to parse remotely
 
 ZFS="/usr/sbin/zfs"
-#QLOC=/mnt/blah
 
 # Function to check that a binary exists
 function check_bin() {
@@ -40,10 +39,10 @@ SAVEIFS=$IFS
 IFS="
 "
 
-if [ -z $QLOC ]; then
+if [ -z $2 ]; then
   QLOC=$($ZFS get mountpoint -H $1 2>/dev/null | awk '{print $3}')
 else
-  QLOC=$QLOC
+  QLOC=$2
 fi
 
 zcmd=$($ZFS userspace -p -n $1 2>/dev/null | sed -n '1!p');

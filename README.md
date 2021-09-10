@@ -9,12 +9,16 @@ Version 2 is not backwards compatible with v1 which is why the version numbers c
 
 ## Sample Usage:
 
-This is aimed at network envrionments where end users require some form of quota output.
-We assume that the root of the ZFS mount point is the mount point for the users data, this may not be your use case, please uncomment ands set the variable QLOC in the server script.
+This is aimed at network environments where end users require some form of quota output.
+We assume that the root of the ZFS mount point is the NFS mount point for the users data, this may not be your use case, if it isn't then add the NFS mount location as the second parameter similar to the second example below.
 
-Put the server script into cron:
+Put the server script into cron, change homes/home for your ZFS vol.:
 ```bash
 echo "*/2 * * * * root ZFS-Quota-Server.sh homes/home >/dev/null 2>&1" >> /etc/cron.d/zfs-quota
+```
+or if you need to override the quota output, change for your zvol and directory.
+```bash
+echo "*/2 * * * * root ZFS-Quota-Server.sh MyPool/Users /export/Users/Docs >/dev/null 2>&1" >> /etc/cron.d/zfs-quota
 ```
 
 Touch the quota.zfs and set permissions for first run, change homes/home for your ZFS vol.
