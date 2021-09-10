@@ -39,6 +39,11 @@ the quota.zfs output should look similar to this (showing UIDs and not Usernames
 1001::1307875224::161061273600::1%
 1::56580187648::64424509440::88%
 ```
+### Experimental Group Support:
+This is a very simple change to support ZFS group quotas. We highly suggest not running user and group quotas on the same zvol.
+```bash
+echo "*/2 * * * * root ZFS-Quota-Server-Groups.sh homes/home >/dev/null 2>&1" >> /etc/cron.d/zfs-quota
+```
 
 ## Client
 ### Sample Usage:
@@ -48,7 +53,7 @@ The sample output should look like this
 ```
 
  Quota Report for aboutcher
- Mount				Used		Total		Last Checked
+ Mount          Used		Total		Last Checked
  /mnt/home			1.3G (1%)	150G		Wed 28 Jun 2017 16:21:44 BST
 
 ```
@@ -56,9 +61,23 @@ and for multiple servers similar to below94980eb
 ```
 
  Quota Report for aboutcher
- Mount				Used		Total		Last Checked
+ Mount				  Used      Total		Last Checked
  /mnt/home			1.3G (1%)	150G		Tue 13 Jul 2021 16:00:00 BST
- /mnt/storage			23T (10%)	230T		Tue 13 Jul 2021 16:00:00 BST
+ /mnt/storage	  23T (10%)	230T		Tue 13 Jul 2021 16:00:00 BST
+
+```
+### Experimental Group Support:
+Version 2.5 of the client supports the group quota system. Group reports are for the entire group and not the individual.
+You will have to add the group server mount points into the array grpsrvs.
+
+The sample output should look like this
+```
+
+ Quota Report for aboutcher
+ Mount Point             Used       Total   Last Checked
+ /mnt/home			         1.3G (1%)	150G		Tue 13 Jul 2021 16:00:00 BST
+ /mnt/storage			       23T (10%)	230T		Tue 13 Jul 2021 16:00:00 BST
+ /mnt/groups (admin)     23T (10%)	230T		Tue 13 Jul 2021 16:00:00 BST
 
 ```
 
