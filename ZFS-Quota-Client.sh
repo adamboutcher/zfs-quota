@@ -60,22 +60,21 @@ for i in "${servers[@]}"; do
           ztotal=$(echo $ztotal | numfmt --to=iec);
         fi
         zperc=$(echo $ii | awk -F'::' '{print $4}');
+        zage=$(date +"%c" -d @$(stat -c %Z $i/quota.zfs))
+        printf ' %-35s %-15s %-10s %-20s\n' "$i" "$zused ($zperc)" "$ztotal" "$zage";
       fi
     done
-    zage=$(date +"%c" -d @$(stat -c %Z $i/quota.zfs))
-    printf ' %-35s %-15s %-10s %-20s\n' "$i" "$zused ($zperc)" "$ztotal" "$zage";
   fi
 done;
 
 # Group Checks
-for g in $(id -G $QUSER 2>/dev/null); do
+for grp in $(id -G $QUSER 2>/dev/null); do
   for i in "${grpsrvs[@]}"; do
-    zquota=$(cat $i/quota.zfs 2>/dev/null | grep $g 2>/dev/null);
+    zquota=$(cat $i/quota.zfs 2>/dev/null | grep $grp 2>/dev/null);
     if [[ ! -z "$zquota" ]]; then
       for ii in $zquota; do
         zgid=$(echo $ii | awk -F'::' '{print $1}')
-        zgnm=$(getent group $g | awk -F':' '{print $1}')
-        if  [[ $zgid == $g ]]; then
+        if  [[ $zgid == $grp ]]; then
           zused=$(echo $ii | awk -F'::' '{print $2}' | numfmt --to=iec);
           if [[ $zused == "nan" ]]; then
             zused=0;
@@ -85,10 +84,11 @@ for g in $(id -G $QUSER 2>/dev/null); do
             ztotal=$(echo $ztotal | numfmt --to=iec);
           fi
           zperc=$(echo $ii | awk -F'::' '{print $4}');
+          zage=$(date +"%c" -d @$(stat -c %Z $i/quota.zfs))
+          zgnm=$(getent group $grp | awk -F':' '{print $1}')
+          printf ' %-35s %-15s %-10s %-20s\n' "$i ($zgnm)" "$zused ($zperc)" "$ztotal" "$zage";
         fi
       done
-      zage=$(date +"%c" -d @$(stat -c %Z $i/quota.zfs))
-      printf ' %-35s %-15s %-10s %-20s\n' "$i ($zgnm)" "$zused ($zperc)" "$ztotal" "$zage";
     fi
   done;
 done;
