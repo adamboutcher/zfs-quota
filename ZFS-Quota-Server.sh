@@ -56,7 +56,7 @@ if [ -f $QLOC/quota.zfs ]; then
     if [[ zquot -ne "none" ]]; then
       zperc=$(echo $zquota| awk '{printf "%.0f\n",  ($4/$5) * 100}');
     else
-      zpec=0;
+      zperc=0;
     fi
     echo -e "$zuser::$zused::$zquot::$zperc%" >> $QLOC/quota.zfs
   done;
