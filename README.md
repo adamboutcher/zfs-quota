@@ -53,17 +53,17 @@ The sample output should look like this
 ```
 
  Quota Report for aboutcher
- Mount          Used		Total		Last Checked
- /mnt/home      1.3G (1%)	150G		Wed 28 Jun 2017 16:21:44 BST
+ Mount          Used       Total    Last Checked
+ /mnt/home      1.3G (1%)  150G     Wed 28 Jun 2017 16:21:44 BST
 
 ```
 and for multiple servers similar to below94980eb
 ```
 
  Quota Report for aboutcher
- Mount          Used      Total		Last Checked
- /mnt/home      1.3G (1%)	150G		Tue 13 Jul 2021 16:00:00 BST
- /mnt/storage   23T (10%)	230T		Tue 13 Jul 2021 16:00:00 BST
+ Mount          Used       Total    Last Checked
+ /mnt/home      1.3G (1%)  150G     Tue 13 Jul 2021 16:00:00 BST
+ /mnt/storage   23T (10%)  230T     Tue 13 Jul 2021 16:00:00 BST
 
 ```
 ### Experimental Group Support:
@@ -74,10 +74,10 @@ The sample output should look like this
 ```
 
  Quota Report for aboutcher
- Mount Point             Used       Total   Last Checked
- /mnt/home               1.3G (1%)	150G		Tue 13 Jul 2021 16:00:00 BST
- /mnt/storage            23T (10%)	230T		Tue 13 Jul 2021 16:00:00 BST
- /mnt/groups (admin)     23T (10%)	230T		Tue 13 Jul 2021 16:00:00 BST
+ Mount Point             Used       Total    Last Checked
+ /mnt/home               1.3G (1%)  150G     Tue 13 Jul 2021 16:00:00 BST
+ /mnt/storage            23T (10%)  230T     Tue 13 Jul 2021 16:00:00 BST
+ /mnt/groups (admin)     23T (10%)  230T     Tue 13 Jul 2021 16:00:00 BST
 
 ```
 
