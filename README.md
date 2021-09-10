@@ -7,8 +7,8 @@ Expect this to break.
 Version 1 is available in the branch v1, the main branch is now a modified version marked as v2.
 Version 2 is not backwards compatible with v1 which is why the version numbers changed. Version 2 utilises UIDs and not Usernames.
 
-## Sample Usage:
-
+## Server
+### Sample Usage:
 This is aimed at network environments where end users require some form of quota output.
 We assume that the root of the ZFS mount point is the NFS mount point for the users data, this may not be your use case, if it isn't then add the NFS mount location as the second parameter similar to the second example below.
 
@@ -33,6 +33,8 @@ the quota.zfs output should look similar to this (showing UIDs and not Usernames
 1::56580187648::64424509440::88%
 ```
 
+## Client
+### Sample Usage:
 Add the list of ZFS Servers to the array in the client script and the correct mountpoint, you could then alias quota with this script is required.
 
 The sample output should look like this
