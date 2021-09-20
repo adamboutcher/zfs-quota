@@ -3,7 +3,7 @@ This is a very rudimentary quota checking system for a ZFS based NFS Server as t
 
 Expect this to break.
 
-![License](https://img.shields.io/github/license/adamboutcher/zfs-quota?color=green&label=License&logoColor=white) ![GitHub last v1 commit](https://img.shields.io/github/last-commit/adamboutcher/zfs-quota/v1?label=Last%20v1%20Commit&logo=github&logoColor=white) ![GitHub last main commit](https://img.shields.io/github/last-commit/adamboutcher/zfs-quota/main?label=Last%20v2%20Commit&logo=github&logoColor=white)
+![License](https://img.shields.io/github/license/adamboutcher/zfs-quota?color=green&label=License&logoColor=white) ![GitHub last v1 commit](https://img.shields.io/github/last-commit/adamboutcher/zfs-quota/v1?label=Last%20v1%20Commit&logo=github&logoColor=white) ![GitHub last main commit](https://img.shields.io/github/last-commit/adamboutcher/zfs-quota/main?label=Last%20main%20Commit&logo=github&logoColor=white)
 
 ## Versions and Differences
 - Version 1 is available in the branch v1, the main branch is now a modified version marked as v2.
