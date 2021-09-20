@@ -6,9 +6,9 @@ Expect this to break.
 ![License](https://img.shields.io/github/license/adamboutcher/zfs-quota?color=green&label=License&logoColor=white) ![GitHub last v1 commit](https://img.shields.io/github/last-commit/adamboutcher/zfs-quota/v1?label=Last%20v1%20Commit&logo=github&logoColor=white) ![GitHub last v2 commit](https://img.shields.io/github/last-commit/adamboutcher/zfs-quota/main?label=Last%20v2%20Commit&logo=github&logoColor=white)
 
 ## Versions and Differences
-Version 1 is available in the branch v1, the main branch is now a modified version marked as v2.
-Version 2 is not backwards compatible with v1 which is why the version numbers changed. Version 2 utilises UIDs and not Usernames. This is a git tag (not branch).
-Version 3 is a unified script for groups and users which is partially backwards compabile with v2.
+- Version 1 is available in the branch v1, the main branch is now a modified version marked as v2.
+- Version 2 is not backwards compatible with v1 which is why the version numbers changed. Version 2 utilises UIDs and not Usernames.
+- Version 3 is a unified script for groups and users which is partially backwards compabile with v2.
 
 ## Server
 ### Sample Usage:
