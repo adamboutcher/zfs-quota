@@ -7,7 +7,8 @@ Expect this to break.
 
 ## Versions and Differences
 Version 1 is available in the branch v1, the main branch is now a modified version marked as v2.
-Version 2 is not backwards compatible with v1 which is why the version numbers changed. Version 2 utilises UIDs and not Usernames.
+Version 2 is not backwards compatible with v1 which is why the version numbers changed. Version 2 utilises UIDs and not Usernames. This is a git tag (not branch).
+Version 3 is a unified script for groups and users which is partially backwards compabile with v2.
 
 ## Server
 ### Sample Usage:
@@ -20,7 +21,7 @@ echo "*/2 * * * * root ZFS-Quota-Server.sh homes/home >/dev/null 2>&1" >> /etc/c
 ```
 or if you need to override the quota output, change for your zvol and directory.
 ```bash
-echo "*/2 * * * * root ZFS-Quota-Server.sh MyPool/Users /export/Users/Docs >/dev/null 2>&1" >> /etc/cron.d/zfs-quota
+echo "*/2 * * * * root ZFS-Quota-Server.sh MyPool/Users user /export/Users/Docs >/dev/null 2>&1" >> /etc/cron.d/zfs-quota
 ```
 
 Touch the quota.zfs and set permissions for first run, change homes/home for your ZFS vol.
@@ -42,7 +43,7 @@ the quota.zfs output should look similar to this (showing UIDs and not Usernames
 ### Experimental Group Support:
 This is a very simple change to support ZFS group quotas. We highly suggest not running user and group quotas on the same zvol.
 ```bash
-echo "*/2 * * * * root ZFS-Quota-Server-Groups.sh homes/home >/dev/null 2>&1" >> /etc/cron.d/zfs-quota
+echo "*/2 * * * * root ZFS-Quota-Server.sh shared/groups group >/dev/null 2>&1" >> /etc/cron.d/zfs-quota
 ```
 
 ## Client

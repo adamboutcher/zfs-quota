@@ -1,5 +1,5 @@
 #!/bin/bash
-# ZFS Quota Server - Version 2
+# ZFS Quota Server - Version 3
 # 2021 - Adam Boutcher
 # IPPP, Durham University
 # This pulls the quota info from ZFS and outputs to a file to parse remotely
@@ -39,13 +39,19 @@ SAVEIFS=$IFS
 IFS="
 "
 
-if [ -z $2 ]; then
-  QLOC=$($ZFS get mountpoint -H $1 2>/dev/null | awk '{print $3}')
+if [ -z $2 ] || [ $2 != "group" ]; then
+  ZTYPE="userspace"
 else
-  QLOC=$2
+  ZTYPE="groupspace"
 fi
 
-zcmd=$($ZFS userspace -p -n $1 2>/dev/null | sed -n '1!p');
+if [ -z $3 ]; then
+  QLOC=$($ZFS get mountpoint -H $1 2>/dev/null | awk '{print $3}')
+else
+  QLOC=$3
+fi
+
+zcmd=$($ZFS $ZTYPE -p -n $1 2>/dev/null | sed -n '1!p');
 if [ -f $QLOC/quota.zfs ]; then
   > $QLOC/quota.zfs
   for zquota in `echo "$zcmd"`; do
